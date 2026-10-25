@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Josh Ong | Game Programmer</title>
+  <meta name="description" content="Josh Ong builds gameplay and AI systems in C++ and Unreal Engine 5. Third-year Interactive Media and Game Development student, available for an internship from May 2027 to April 2028.">
+  <meta name="theme-color" content="#0a0d11">
+
+  <!-- Fonts are stored in assets/fonts, so the site doesn't depend on Google Fonts -->
+  <link rel="preload" href="assets/fonts/big-shoulders-display-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="logo" href="#top">Josh Ong</a>
+    <nav>
+      <a href="#work">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#about">About</a>
+      <a href="assets/resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO: to change the picture, replace assets/hero.jpg (keep it wide and dark on the left) -->
+    <section class="hero">
+      <img class="hero-img" src="assets/hero.jpg" alt="">
+      <div class="hero-copy">
+        <h1 class="hero-name">Josh Ong</h1>
+        <p class="hero-role">Gameplay and AI programmer</p>
+        <p class="hero-intro">
+          Third-year Interactive Media and Game Development student at SIT and DigiPen Singapore.
+          I build gameplay and AI systems in C++ and Unreal Engine 5.
+        </p>
+        <p class="availability">Available for an internship from May 2027 to April 2028</p>
+        <div class="hero-links">
+          <a class="button" href="#work">See my projects</a>
+          <a class="button button-quiet" href="mailto:joshong1902@gmail.com">Email me</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="work">
+      <h2 class="section-title">Projects</h2>
+      <!-- main.js fills this in from projects.js -->
+      <div class="project-list" id="project-list"></div>
+    </section>
+
+    <!-- EXPERIENCE and EDUCATION: one <li> per entry. Copy an <li> to add another. -->
+    <section id="experience" class="timeline-section">
+      <h2 class="section-title">Experience</h2>
+      <ol class="timeline">
+        <li>
+          <p class="timeline-when">Jun 2023 – May 2024</p>
+          <div>
+            <h3>Group Leader</h3>
+            <p class="timeline-where">Singapore Police Force</p>
+            <p>Led a callsign of three to four officers responding to live incidents, and briefed investigation officers when handing cases over.</p>
+          </div>
+        </li>
+        <li>
+          <p class="timeline-when">Sep 2021 – Feb 2022</p>
+          <div>
+            <h3>Business Analyst Intern</h3>
+            <p class="timeline-where">Accenture</p>
+            <p>Queried and transformed large client datasets in SQL, and scoped requirements directly with clients.</p>
+          </div>
+        </li>
+        <li>
+          <p class="timeline-when">Feb 2019 – Apr 2022</p>
+          <div>
+            <h3>Barista and Customer Service</h3>
+            <p class="timeline-where">Habitat Coffee</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="education" class="timeline-section">
+      <h2 class="section-title">Education</h2>
+      <ol class="timeline">
+        <li>
+          <p class="timeline-when">2024 – 2028</p>
+          <div>
+            <h3>BSc (Hons) Computer Science in Interactive Media and Game Development</h3>
+            <p class="timeline-where">Singapore Institute of Technology and DigiPen Institute of Technology Singapore</p>
+            <p>Third year, graduating 2028. Coursework includes Game AI, Algorithms, Linear Algebra, Probability and Statistics, and Psychology.</p>
+          </div>
+        </li>
+        <li>
+          <p class="timeline-when">Graduated 2022</p>
+          <div>
+            <h3>Diploma in Electronic and Computer Engineering</h3>
+            <p class="timeline-where">Ngee Ann Polytechnic</p>
+            <p>Specialised in Network Security and Systems. Captain of the track and field team from 2021 to 2022.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="about" class="about">
+      <h2 class="section-title">About</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm Josh, and most of what I make is gameplay and game AI. In my first year I
+            wrote the audio and power-ups for Thanos World, a gravity-flipping runner. Since
+            then I've built the procedural dungeon generator for Warbound, ported an AI planner
+            into Unreal Engine 5 for a research paper, and designed a level where light, not
+            signposts, shows the player the way.
+          </p>
+        </div>
+        <dl class="skills">
+          <dt>Languages</dt>
+          <dd>C++, C, SQL</dd>
+          <dt>Engines and tools</dt>
+          <dd>Unreal Engine 5, OpenGL, Git, Figma</dd>
+          <dt>Techniques</dt>
+          <dd>ECS architecture, HTN planning, behavior trees, A* pathfinding, influence maps, procedural generation, level design</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="section-title">Get in touch</h2>
+      <p class="contact-note">Looking for a game programming internship, May 2027 to April 2028.</p>
+      <a class="contact-email" href="mailto:joshong1902@gmail.com">joshong1902@gmail.com</a>
+      <ul class="contact-links">
+        <li><a href="https://www.linkedin.com/in/joshong1902" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/josh-1902" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="assets/resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Josh Ong</p>
+  </footer>
+
+  <script src="projects.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

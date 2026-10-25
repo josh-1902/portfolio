@@ -1,0 +1,395 @@
+/* =========================================================
+   FONTS (self-hosted, Open Font License)
+   ========================================================= */
+@font-face {
+  font-family: "Big Shoulders Display";
+  src: url("assets/fonts/big-shoulders-display-latin-700-normal.woff2") format("woff2");
+  font-weight: 700; font-display: swap;
+}
+@font-face {
+  font-family: "Big Shoulders Display";
+  src: url("assets/fonts/big-shoulders-display-latin-800-normal.woff2") format("woff2");
+  font-weight: 800; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/fonts/ibm-plex-sans-latin-500-normal.woff2") format("woff2");
+  font-weight: 500; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2");
+  font-weight: 600; font-display: swap;
+}
+
+/* =========================================================
+   COLOURS — taken from the hero picture.
+   Change a value here and the whole site follows.
+   ========================================================= */
+:root {
+  --night: #0a0d11;      /* page background: the black behind the particles */
+  --panel: #121922;      /* raised panels */
+  --line: #2a3644;       /* borders */
+  --text: #e6eef5;       /* main text */
+  --text-dim: #9fb0bf;   /* secondary text */
+  --accent: #8ec5ea;     /* links and highlights: the brightest particles */
+  --accent-deep: #4f86b3;/* bullet markers, underlines: the blurred wave */
+
+  --display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --body: "IBM Plex Sans", system-ui, sans-serif;
+  --width: 1180px;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-underline-offset: 0.2em; }
+a:hover { color: var(--text); }
+
+/* Visible keyboard focus */
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+h1, h2, h3, h4 { margin: 0; font-weight: 700; }
+img { max-width: 100%; display: block; }
+
+.work, .timeline-section, .about, .contact, .site-footer {
+  max-width: var(--width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* =========================================================
+   HEADER (floats over the hero)
+   ========================================================= */
+.site-header {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem var(--gutter);
+}
+.logo {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  text-decoration: none;
+}
+.site-header nav { display: flex; gap: 1.5rem; }
+.site-header nav a { color: var(--text); text-decoration: none; font-weight: 500; }
+.site-header nav a:hover { color: var(--accent); }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  position: relative;
+  min-height: min(94vh, 960px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 60%;   /* keeps the bright particles right of the text */
+  z-index: -2;
+}
+
+/* Darkens the left and bottom so the text always reads, and fades into the page */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(10,13,17,0.7) 0%, rgba(10,13,17,0) 7rem),
+    linear-gradient(90deg, rgba(10,13,17,0.92) 0%, rgba(10,13,17,0.55) 38%, rgba(10,13,17,0) 62%),
+    linear-gradient(0deg, var(--night) 0%, rgba(10,13,17,0) 32%);
+}
+.hero-copy {
+  width: 100%;
+  max-width: var(--width);
+  margin-inline: auto;
+  padding: 0 var(--gutter) clamp(3rem, 8vh, 6rem);
+}
+.hero-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(4.5rem, 15vw, 11.5rem);
+  line-height: 0.82;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  max-width: 6ch;              /* stacks JOSH over ONG */
+}
+.hero-role {
+  margin: 1.25rem 0 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.1;
+  color: var(--accent);
+}
+.hero-intro {
+  margin: 1rem 0 0;
+  max-width: 34em;
+  color: var(--text);
+}
+.hero-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+.availability {
+  display: inline-block;
+  margin: 1.25rem 0 0;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--accent-deep);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  background: var(--accent);
+  color: var(--night);
+  border: 2px solid var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+.button:hover { background: var(--text); border-color: var(--text); color: var(--night); }
+.button-quiet { background: transparent; color: var(--text); border-color: var(--text-dim); }
+.button-quiet:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
+
+/* =========================================================
+   WORK
+   ========================================================= */
+.work { padding-top: clamp(4rem, 10vw, 7rem); }
+
+.project {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  border-top: 1px solid var(--line);
+}
+/* Alternate sides so the page has a rhythm */
+.project:nth-child(even) .project-visual { order: 2; }
+
+.project-visual { margin: 0; }
+.visual-frame {
+  aspect-ratio: 16 / 10;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.visual-frame img,
+.visual-frame video,
+.visual-frame svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+.visual-frame.is-interactive { cursor: pointer; }
+.project-visual figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+.project-info { align-self: center; }
+.project-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.project.is-featured .project-title { font-size: clamp(3rem, 6vw, 4.5rem); }
+.project-meta { margin: 0.6rem 0 1rem; color: var(--accent); font-weight: 500; }
+.project-summary { margin: 0 0 1rem; }
+.project-points { margin: 0 0 1.25rem; padding-left: 1.1rem; color: var(--text-dim); }
+.project-points li { margin-bottom: 0.4rem; }
+.project-points li::marker { color: var(--accent-deep); }
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; padding: 0; margin: 0 0 1.25rem; }
+.tags li {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+}
+.project-links { display: flex; flex-wrap: wrap; gap: 1.25rem; font-weight: 600; }
+
+/* Breakdown: the browser's built-in <details> show/hide, spanning the full row */
+.breakdown { grid-column: 1 / -1; order: 3; border-top: 1px solid var(--panel); padding-top: 1rem; }
+.breakdown summary {
+  cursor: pointer;
+  width: fit-content;
+  list-style: none;
+  font-weight: 600;
+  color: var(--accent);
+}
+.breakdown summary::-webkit-details-marker { display: none; }
+.breakdown summary::before { content: "+ "; }
+.breakdown[open] summary::before { content: "\2212  "; }
+.breakdown summary:hover { color: var(--text); }
+.breakdown-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.5rem 3rem;
+  margin-top: 1.5rem;
+}
+.breakdown-body h4 {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+.breakdown-body p { margin: 0; color: var(--text-dim); }
+.breakdown-shots {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+  gap: 1.5rem;
+}
+.breakdown-shots figure { margin: 0; max-width: 44rem; }
+.breakdown-shots img { width: 100%; border: 1px solid var(--line); }
+.breakdown-shots figcaption { margin-top: 0.5rem; font-size: 0.875rem; color: var(--text-dim); }
+
+/* =========================================================
+   EXPERIENCE + EDUCATION
+   ========================================================= */
+.timeline-section { padding-top: clamp(4rem, 10vw, 7rem); }
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  gap: clamp(1rem, 4vw, 3.5rem);
+  padding-block: clamp(1.5rem, 3vw, 2.25rem);
+  border-top: 1px solid var(--line);
+}
+.timeline-when {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: var(--accent);
+}
+.timeline h3 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.timeline-where { margin: 0.4rem 0 0; font-weight: 500; }
+.timeline-where + p { margin: 0.6rem 0 0; max-width: 40em; color: var(--text-dim); }
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+.about { padding-top: clamp(4rem, 10vw, 7rem); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  border-top: 1px solid var(--line);
+  padding-top: clamp(2rem, 5vw, 3rem);
+}
+.about-text p { margin: 0 0 1.25rem; max-width: 36em; font-size: 1.125rem; }
+.skills { margin: 0; }
+.skills dt {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--accent);
+}
+.skills dd { margin: 0.2rem 0 1.25rem; color: var(--text-dim); }
+
+/* =========================================================
+   CONTACT + FOOTER
+   ========================================================= */
+.contact { padding-block: clamp(4rem, 10vw, 7rem) 2rem; }
+.contact-note { margin: 0 0 1rem; color: var(--text-dim); font-size: 1.125rem; }
+.contact-email {
+  display: inline-block;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 6.5vw, 4.5rem);
+  line-height: 1;
+  color: var(--accent);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  border-bottom: 3px solid var(--accent-deep);
+}
+.contact-email:hover { color: var(--text); border-color: var(--accent); }
+.contact-links {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  font-weight: 600;
+}
+.site-footer { padding-block: 2rem 3rem; color: var(--text-dim); font-size: 0.875rem; }
+
+/* =========================================================
+   PHONES
+   ========================================================= */
+@media (max-width: 760px) {
+  /* Five links don't fit beside the name on a phone: they wrap to a second row */
+  .site-header { flex-wrap: wrap; row-gap: 0.4rem; }
+  .site-header nav { gap: 0.25rem 1rem; flex-wrap: wrap; font-size: 0.95rem; }
+
+  /* Hero: picture on top, words underneath, so text never sits on the busy part */
+  .hero { flex-direction: column; align-items: stretch; min-height: 0; }
+  .hero::after { background: linear-gradient(180deg, rgba(10,13,17,0.75) 0%, rgba(10,13,17,0) 5rem); bottom: auto; height: 5rem; }
+  .hero-img { position: static; aspect-ratio: 4 / 3; height: auto; object-position: 75% 60%; }
+  .hero-copy { padding-top: 1.5rem; padding-bottom: 1rem; }
+
+  .project, .about-grid, .timeline li { grid-template-columns: 1fr; }
+  .timeline li { gap: 0.4rem; }
+  .project:nth-child(even) .project-visual { order: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
