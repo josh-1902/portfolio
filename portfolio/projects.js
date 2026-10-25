@@ -131,7 +131,6 @@ const projects = [
     points: [
       "Light as wayfinding: inside buildings, one shaft of light through a broken roof marks the way on",
       "Openings frame the next landmark before the player reaches it",
-      "Scoped the design to what the engine and assets could support",
     ],
     tags: ["Unreal Engine 5", "Level design", "Lighting"],
     media: { type: "image", src: "assets/level-slabs.jpg", alt: "Collapsed slabs and wrecked cars in the ruined city at sunset" },
@@ -141,11 +140,6 @@ const projects = [
         heading: "Guiding without signs",
         text:
           "With no combat and nothing to chase, the only thing pulling the player forward is what they can see. Exterior routes open onto the next landmark; interiors are dark except for a single shaft of light where the path continues.",
-      },
-      {
-        heading: "Cutting to fit",
-        text:
-          "The plan had the player visibly carrying a package across the whole city. Without the animation assets to support it, the package became a pickup at the start, and the route carries the story instead.",
       },
     ],
     shots: [
